@@ -1,0 +1,313 @@
+description: Empower investing for all
+examples: {}
+examples_2: {}
+ignoreObjectsWithNoProperties: false
+ignorePotentialIncorrectType: true
+operationIds:
+  /accounts:
+    post: Accounts_create
+  /accounts/{accountID}:
+    get: Accounts_retrieve
+    patch: Accounts_update
+  /accounts/{accountID}/beneficiaries:
+    delete: Beneficiaries_delete
+    get: Beneficiaries_retrieveByAccount
+    post: Beneficiaries_create
+  /accounts/{accountID}/commissions:
+    get: CommissionSchedules_list
+  /accounts/{accountID}/confirms:
+    get: Statements_listTradeConfirmationsByAccount
+  /accounts/{accountID}/funding/deposit-instructions:
+    get: VirtualBankAccounts_retrieveByAccount
+  /accounts/{accountID}/funding/deposits:
+    get: Deposits_listByAccount
+  /accounts/{accountID}/funding/redemptions:
+    get: Withdrawals_listByAccount
+  /accounts/{accountID}/performance:
+    get: Accounts_retrievePerformance
+  /accounts/{accountID}/portfolio:
+    get: AutoPilot_retrievePortfolioStatusByAccount
+  /accounts/{accountID}/reports/daily-trade-summary:
+    get: Settlements_listDvpRvpReports
+    post: Settlements_createDvpRvpReport
+  /accounts/{accountID}/reports/daily-trade-summary/{reportID}:
+    get: Settlements_retrieveDvpRvpReport
+  /accounts/{accountID}/reports/exchange-history:
+    get: Exchanges_retrieveHistoryForAccount
+  /accounts/{accountID}/reports/order-history:
+    get: Orders_retrieveByAccount
+  /accounts/{accountID}/statements:
+    get: Statements_listMonthlyStatementsByAccount
+  /accounts/{accountID}/summary:
+    get: Accounts_retrieveSummary
+  /accounts/{accountID}/summary/exchanges:
+    get: Exchanges_listByAccount
+  /accounts/{accountID}/summary/margin:
+    get: Accounts_listMarginDetails
+  /accounts/{accountID}/summary/money:
+    get: Accounts_retrieveMoneyDetails
+  /accounts/{accountID}/summary/orders:
+    get: Orders_retrievePendingByAccount
+  /accounts/{accountID}/summary/positions:
+    get: Positions_listByAccount
+  /accounts/{accountID}/summary/transactions:
+    get: Transactions_retrieveSummaryByAccount
+  /accounts/{accountID}/summary/violations:
+    get: Violations_retrieveByAccount
+  /accounts/{accountID}/taxforms:
+    get: Statements_listTaxDocumentsByAccount
+  /accounts/{accountID}/transactions:
+    get: Transactions_listByAccount
+  /accounts/{accountID}/violations:
+    get: Violations_listByAccount
+  /asset-transfers:
+    get: AssetTransfer_list
+  /asset-transfers/acats:
+    post: AssetTransfer_createAcatsTransfer
+  /asset-transfers/cancel-rebills:
+    get: CancelRebill_list
+    post: CancelRebill_create
+  /asset-transfers/cancel-rebills/{id}:
+    get: CancelRebill_retrieveById
+  /asset-transfers/minor-graduation:
+    post: AssetTransfer_createMinorGraduationTransfer
+  /asset-transfers/{assetTransferID}:
+    get: AssetTransfer_retrieve
+  /auth:
+    post: Auth_createToken
+  /auth/tokens:
+    post: Auth_createSessionToken
+  /bars:
+    get: Charts_retrieve
+  /countries:
+    get: SupportedCountries_list
+  /disclosures:
+    get: Disclosures_list
+  /disclosures/{disclosureID}:
+    get: Disclosures_retrieve
+  /documents:
+    post: PhysicalDocuments_create
+  /exchanges:
+    patch: Exchanges_update
+    post: Exchanges_create
+  /exchanges/{exchangeID}:
+    get: Exchanges_retrieve
+  /funding/deposits:
+    post: Deposits_create
+  /funding/deposits/{depositID}:
+    get: Deposits_retrieve
+  /funding/reconciliations:
+    get: Settlements_listCashlessReconciliations
+  /funding/reconciliations/{reconciliationID}:
+    get: Settlements_retrieve
+  /funding/recurring-deposits/{recurringID}:
+    delete: Deposits_deleteRecurringSchedule
+    get: Deposits_retrieveRecurringSchedule
+    patch: Deposits_updateRecurringSchedule
+  /funding/redemptions:
+    get: Withdrawals_list
+    post: Withdrawals_create
+  /funding/redemptions/{redemptionID}:
+    get: Withdrawals_retrieve
+  /funding/settlements/instant-funding:
+    get: Settlements_listBulkSettlements
+  /funding/settlements/instant-funding/{settlementID}:
+    get: Settlements_retrieveBulkSettlement
+  /instruments:
+    get: Instruments_list
+  /instruments/filter:
+    post: Instruments_filter
+  /instruments/{symbolOrInstrumentID}:
+    get: Instruments_retrieve
+  /instruments/{symbolOrInstrumentID}/options:
+    get: Instruments_retrieveOptionsChain
+  /instruments/{symbolOrInstrumentID}/options/expiration-dates:
+    get: Instruments_retrieveOptionExpirationDates
+  /managed/allocations:
+    post: TradeAllocations_create
+  /managed/allocations/{allocationID}:
+    get: TradeAllocations_retrieve
+  /managed/autopilot/{partnerID}:
+    post: AutoPilot_createRun
+  /managed/autopilot/{rebalanceRunID}:
+    get: AutoPilot_retrieveRun
+  /managed/funds:
+    post: Funds_create
+  /managed/funds/{fundID}:
+    get: Funds_get
+  /managed/portfolios:
+    post: Portfolios_create
+  /managed/portfolios/{portfolioID}:
+    get: Portfolios_retrieve
+    patch: Portfolios_update
+  /orders:
+    post: Orders_create
+  /orders/byOrderNo/{orderNo}:
+    get: Orders_retrieveByNumber
+  /orders/crypto/execute:
+    post: Orders_createWithRequestForQuote
+  /orders/crypto/rfq:
+    post: Orders_createRequestForQuote
+  /orders/{orderID}:
+    get: Orders_retrieve
+    patch: Orders_update
+  /quotes:
+    get: Quotes_retrieveReferentialFeed
+  /quotes/depth:
+    post: DepthOfBook_getQuoteDepth
+  /quotes/vdr:
+    get: Quotes_retrieveConsolidatedFeed
+  /statements/{accountID}/{fileKey}:
+    get: Statements_retrieveDocumentUrl
+  /subscriptions:
+    post: Subscriptions_create
+  /subscriptions/{subscriptionID}:
+    delete: Subscriptions_delete
+  /users:
+    post: Users_create
+  /users/{userID}:
+    get: Users_retrieve
+    patch: Users_update
+  /users/{userID}/accounts:
+    get: Accounts_listByUser
+  /users/{userID}/acknowledgments:
+    get: Disclosures_listByUser
+    post: Disclosures_createUserAcknowledgement
+  /users/{userID}/bank-accounts:
+    get: LinkedBankAccounts_listByUser
+  /users/{userID}/documents:
+    get: PhysicalDocuments_listByUser
+  /users/{userID}/funding/deposits:
+    get: Deposits_listByUser
+  /users/{userID}/funding/redemptions:
+    get: Withdrawals_listByUser
+  /users/{userID}/kyc-status:
+    get: Users_retrieveKycStatus
+  /users/{userID}/managed/allocations:
+    get: TradeAllocations_listByUser
+  /users/{userID}/managed/autopilot:
+    get: AutoPilot_listByAdvisor
+  /users/{userID}/managed/bod:
+    get: AdvisorReports_retrieveBeginningOfDayHoldings
+  /users/{userID}/managed/funds:
+    get: Funds_listByAdvisor
+  /users/{userID}/managed/orders:
+    get: AdvisorReports_listAllocationsByAdvisor
+  /users/{userID}/managed/orders/summary:
+    get: AdvisorReports_listByAdvisor
+  /users/{userID}/managed/portfolio:
+    get: Portfolios_listByAdvisor
+  /users/{userID}/recurring-deposits:
+    get: Deposits_listRecurringSchedulesByUser
+  /users/{userID}/subscriptions:
+    get: Subscriptions_listByUser
+  /{documentID}/url:
+    get: PhysicalDocuments_retrieveUrl
+operationTags: {}
+renameTags: {}
+requestSchemaNames:
+  /exchanges:
+    patch:
+      application/json: ExchangesUpdateRequest
+    post:
+      application/json: ExchangesCreateRequest
+  /quotes/depth:
+    post:
+      application/json: DepthOfBookGetQuoteDepthRequest
+responseDescriptions: {}
+responseSchemaNames:
+  /accounts/{accountID}:
+    patch:
+      '200':
+        application/json: AccountsUpdateResponse
+  /accounts/{accountID}/reports/exchange-history:
+    get:
+      '200':
+        application/json: ExchangesRetrieveHistoryForAccountResponse
+  /accounts/{accountID}/summary/exchanges:
+    get:
+      '200':
+        application/json: ExchangesListByAccountResponse
+  /asset-transfers:
+    get:
+      '200':
+        application/json: AssetTransferListResponse
+  /asset-transfers/acats:
+    post:
+      '400':
+        application/json: AssetTransferCreateAcatsTransferResponse
+  /asset-transfers/{assetTransferID}:
+    get:
+      '200':
+        application/json: AssetTransferRetrieveResponse
+  /exchanges:
+    patch:
+      '200':
+        application/json: ExchangesUpdateResponse
+    post:
+      '200':
+        application/json: ExchangesCreateResponse
+  /exchanges/{exchangeID}:
+    get:
+      '200':
+        application/json: ExchangesRetrieveResponse
+  /funding/reconciliations/{reconciliationID}:
+    get:
+      '200':
+        application/json: SettlementsRetrieveResponse
+  /instruments/{symbolOrInstrumentID}:
+    get:
+      '200':
+        application/json: InstrumentsRetrieveResponse
+  /quotes/depth:
+    post:
+      '200':
+        application/json: DepthOfBookGetQuoteDepthResponse
+securityParameters:
+  category:
+    query: false
+  compression:
+    query: false
+  date:
+    query: false
+  dateEnd:
+    query: false
+  dateStart:
+    query: false
+  direction:
+    query: false
+  exchangeOverride:
+    query: false
+  expirationDate:
+    query: false
+  from:
+    query: false
+  instrumentID:
+    query: false
+  limit:
+    query: false
+  offset:
+    query: false
+  options:
+    query: false
+  page:
+    query: false
+  pageSize:
+    query: false
+  partnerID:
+    query: false
+  period:
+    query: false
+  sortOrder:
+    query: false
+  status:
+    query: false
+  symbols:
+    query: false
+  to:
+    query: false
+  tradingDays:
+    query: false
+  type:
+    query: false
+validServerUrls: {}
