@@ -7,7 +7,7 @@ specPath: InvestingAPI-fixed.yaml
 generators:
   python:
     version: 1.0.0
-    packageName: drivewealth_client
+    packageName: drivewealth
     projectName: drivewealth-python-sdk
     outputDirectory: python
     clientName: Drivewealth
